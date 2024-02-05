@@ -1,0 +1,102 @@
+// RESPONSIVE
+@mixin enter($kind) {
+  @if ($kind == "pc") {
+    @media screen and (min-width: 1800px) {
+      @content;
+    }
+  } @else if ($kind == "notebook") {
+    @media screen and (max-width: 1799px) {
+      @content;
+    }
+  } @else if ($kind == "tablet") {
+    @media screen and (max-width: 1199px) {
+      @content;
+    }
+  } @else if ($kind == "mobile") {
+    @media screen and (max-width: 767px) {
+      @content;
+    }
+  }
+} // @include enter(pc) {}
+
+// 해상도에 맞춘 비율
+@function ratio($px, $width) {
+  @return calc($px / $width * 100vw);
+}
+
+// FLEX
+@mixin flex_row($direction: row) {
+  display: flex;
+  flex-direction: $direction;
+}
+
+@mixin flex_column($direction: column) {
+  display: flex;
+  flex-direction: $direction;
+}
+
+// GRID
+@mixin grid() {
+  display: grid;
+}
+
+// POSITION
+@mixin position($type: r, $top: null, $right: null, $bottom: null, $left: null) {
+  @if($type == "a") {
+    position: absolute;
+  } @else if($type == "s") {
+    position: static;
+  } @else if($type == "sck") {
+    position: sticky;
+  } @else if($type == "f") {
+    position: fixed;
+  } @else if($type == "r") {
+    position: relative;
+  }
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+} // @include position(a, 0, 0, null, 0);
+
+// SELECTION
+@mixin only($element) {
+  @if($element == "first") {
+    &:first-of-type {
+      @content;
+    }
+  } @else if($element == "last") {
+    &:last-of-type {
+      @content;
+    } 
+  } 
+  // @else if(type-of($element) == "number") {
+  //   &:nth-of-type(4) {
+  //     type: $element;
+  //     type: type-of($element);
+  //     type: nth-of-type($element);
+  //     @content;
+  //   } 
+  // }
+}
+
+// WORD SKIP(...)
+@mixin words_skip($line: 1) {
+  display: -webkit-box;
+  -webkit-line-clamp: $line;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+// DISABLE SCROLL
+@mixin disable_scroll {
+  overflow-x: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+// PROJECT CUSTOM
+

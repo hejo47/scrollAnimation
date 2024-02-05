@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/scss/style.css" />
+    <script src="js/jquery.js"></script>
+    <script src="js/gsap.js"></script>
+    <script src="js/scrollTrigger.js"></script>
+    <script src="js/locomotiveScroll.js"></script>
+</head>
+<body>
+    <div class="scroll_preview">
+
+    </div>
+    <div class="word_wrap">
+        <p>HELLO!</p>
+        <p>:&#41;</p>
+        <p>OLLEH!</p>
+        <div class="square"></div>
+    </div>
+</body>
+<script>
+    $(function(){
+        gsap.registerPlugin(ScrollTrigger);
+        
+        gsap.to(".square", {
+            scrollTrigger: {
+                trigger: '.word_wrap', // 객체기준범위
+                start: "0% 30%", // 시작 지점
+                end: "100% 80%", // 끝 지점
+                // end: "+=500", // 시작 부분부터 500px까지 스크롤 한 후 종료
+                scrub: 1, // 부드러운 스크러빙
+                markers: true, // 개발 가이드선
+            },
+            y: -100,
+            zIndex: -1,
+        });
+
+        const scroll = new LocomotiveScroll({
+            el: document.querySelector('body'),
+            smooth: true,
+            smoothMobile: true, // 모바일에서 부드러운 스크롤 적용 여부
+            getSpeed: true, // 사용자 정의 스크롤 속도 함수 활성화
+            multiplier: 0.5, // 스크롤 속도에 곱해지는 상수 값
+            lerp: 0.06, // 스크롤 위치를 보간하는 정도 (0에 가까울수록 부드럽게 이동)
+            class: 'is-inview', // 활성화된 요소에 추가되는 클래스 이름
+            repeat: true, // 요소에 대한 애니메이션을 반복할지 여부
+            // 다른 옵션들...
+        });
+
+        console.log(scroll.options);
+    });
+
+    </script>
+</html>

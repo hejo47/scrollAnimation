@@ -1,0 +1,41 @@
+h1 {
+    // @include only(first) {
+    //     color: red;
+    // }
+    // @include only(4) {
+    //     color: green;
+    // }
+    // @include position(a, 0, 0, 0, 0);
+    // color: red;
+}
+
+h2 {
+    @include position(a, 50%, null, null, 0);
+}
+
+p {
+    font-size: ratio(50, 1920);
+}
+
+.scroll_preview {
+    height: 30vh;
+}
+
+.word_wrap {
+    @include position;
+    @include flex_column;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    row-gap: ratio(20, 1920);
+}
+
+.square {
+    @include position(a, 50%, null, null, 50%);
+    transform: translate(-50%, -50%);
+    z-index: 0;
+    width: ratio(50, 1920);
+    height: ratio(50, 1920);
+    background-color: $pointColor__default;
+}
