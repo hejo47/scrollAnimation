@@ -66,10 +66,12 @@ body {
 
 .wrapper {
   position: relative;
+  height: 100%;
 }
 
 .container {
   max-width: 1620px;
+  width: 100%;
   height: 100%;
 }
 
@@ -144,8 +146,7 @@ body {
   position: relative;
   z-index: -1;
 }
-
-.square {
+.word_wrap .square {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -154,4 +155,17 @@ body {
   width: 2.6041666667vw;
   height: 2.6041666667vw;
   background-color: #87a764;
+}
+
+.animation_view {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 40vh;
+}
+.animation_view .large_square {
+  width: 75%;
+  height: 15px;
+  background-color: purple;
 }/*# sourceMappingURL=style.css.map */

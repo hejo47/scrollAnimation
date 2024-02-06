@@ -25,13 +25,24 @@
             z-index: -1;
         }
     }
+    .square {
+        @include position(a, 50%, null, null, 50%);
+        transform: translate(-50%, -50%);
+        z-index: 0;
+        width: ratio(50, 1920);
+        height: ratio(50, 1920);
+        background-color: $pointColor__default;
+    }
 }
 
-.square {
-    @include position(a, 50%, null, null, 50%);
-    transform: translate(-50%, -50%);
-    z-index: 0;
-    width: ratio(50, 1920);
-    height: ratio(50, 1920);
-    background-color: $pointColor__default;
+.animation_view {
+    @include flex_row;
+    justify-content: center;
+    align-items: center;
+    height: 40vh;
+    .large_square {
+        width: 75%;
+        height: 15px;
+        background-color: purple;
+    }
 }

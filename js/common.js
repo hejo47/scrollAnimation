@@ -11,7 +11,6 @@ $(function(){
       $(".header").css({
         "transform": "translateY(0)",
       });
-      console.log("dhfflsms wnd");
     } else if (lastPos < currentPos) {
       $(".header").css({
         "transform": "translateY(-100%)",
@@ -19,6 +18,5 @@ $(function(){
       $(".header").removeClass("active");
     }
     lastPos = currentPos;
-    console.log(lastPos);
   });
 });
