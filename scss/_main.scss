@@ -1,30 +1,11 @@
-h1 {
-    // @include only(first) {
-    //     color: red;
-    // }
-    // @include only(4) {
-    //     color: green;
-    // }
-    // @include position(a, 0, 0, 0, 0);
-    // color: red;
-}
-
-h2 {
-    @include position(a, 50%, null, null, 0);
-}
-
-p {
-    @include position;
-    z-index: 1;
-    font-size: ratio(50, 1920);
-    &:nth-of-type(2) {
-        @include position;
-        z-index: -1;
-    }
-}
-
 .scroll_preview {
-    height: 30vh;
+    @include flex_row;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+    h3 {
+        display: inline-block;
+    }
 }
 
 .word_wrap {
@@ -35,6 +16,15 @@ p {
     align-items: center;
     width: 100%;
     row-gap: ratio(20, 1920);
+    p {
+        @include position;
+        z-index: 1;
+        font-size: ratio(50, 1920);
+        &:nth-of-type(2) {
+            @include position;
+            z-index: -1;
+        }
+    }
 }
 
 .square {

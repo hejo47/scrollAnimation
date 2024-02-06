@@ -1,16 +1,53 @@
-@font-face {
-    font-family: 'Pretendard-Regular';
-    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
-}
-
-@font-face {
-    font-family: 'Pretendard-ExtraLight';
-    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-ExtraLight.woff') format('woff');
-}
-
-html {
-}
-
 body {
+    background-color: cadetblue;
+}
+
+.wrapper {
     @include position;
+}
+
+.container {
+    max-width: 1620px;
+    height: 100%;
+}
+
+.header {
+    @include position(f, 0, 0, null, null);
+    width: 100%;
+    height: 80px;
+    transition: 0.8s ease all;
+    background-color: transparent;
+    z-index: 9999;
+    .container {
+        margin: 0 auto;
+    }
+    &__menu_list {
+        @include flex_row;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        column-gap: ratio(40, 1920);
+        li {
+            a {
+                display: block;
+                text-transform: uppercase;
+                font-size: ratio($SIZE__default, 1920);
+                font-family: $FONT__bold;
+                mix-blend-mode: difference;
+            }
+        }
+    }
+    &.active {
+        box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+        background-color: #FBFBFB;
+        li {
+            a {
+                display: block;
+                text-transform: uppercase;
+                font-size: ratio($SIZE__default, 1920);
+                font-family: $FONT__bold;
+                mix-blend-mode: unset;
+            }
+        }
+    }
 }
