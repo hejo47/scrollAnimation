@@ -1,7 +1,7 @@
 $(function(){
   let lastPos = 0;
-  $(window).scroll(function(){
-    let currentPos = $(window).scrollTop();
+  scroll.on('scroll', (instance) => {
+    const currentPos = instance.scroll.y;
     if (currentPos > 0) {
       $(".header").addClass("active");
     } else {
